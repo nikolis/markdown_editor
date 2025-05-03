@@ -17,7 +17,8 @@ defmodule MarkdownEditorWeb.Router do
   scope "/", MarkdownEditorWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/",  MarkdownLive, :home
+    get "/home", PageController, :home
   end
 
   # Other scopes may use custom stacks.

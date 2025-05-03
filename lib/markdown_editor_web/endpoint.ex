@@ -19,6 +19,14 @@ defmodule MarkdownEditorWeb.Endpoint do
   #
   # You should set gzip to true if you are running phx.digest
   # when deploying your static files in production.
+
+  # endpoint.ex
+  plug Plug.Static,
+    at: "/pdfs",
+    from: Path.expand("../priv/static/pdfs", __DIR__),
+    gzip: false
+
+
   plug Plug.Static,
     at: "/",
     from: :markdown_editor,

@@ -1,0 +1,22 @@
+<div class="grid grid-cols-2 gap-4 h-screen p-4">
+  <!-- Left Pane: Markdown Input -->
+  <div>
+    <textarea phx-change="update_markdown" name="markdown"
+      class="w-full h-full p-4 border rounded resize-none"
+      placeholder="Type markdown here..."><%= @markdown %></textarea>
+  </div>
+
+  <!-- Right Pane: Rendered HTML -->
+  <div class="relative">
+    <div class="absolute top-2 right-2 space-x-2">
+      <button phx-click="export_pdf" class="bg-blue-500 text-white px-3 py-1 rounded">Export</button>
+      <button id="button_copy" phx-hook="Clipboard" data-copy-id="preview" class="bg-green-500 text-white px-3 py-1 rounded">Copy</button>
+    </div>
+
+    <div id="preview" class="prose max-w-none overflow-y-auto h-full p-4 border rounded"
+      phx-update="ignore">
+      <%= raw @rendered_html %>
+    </div>
+  </div>
+</div>
+

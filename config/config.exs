@@ -11,6 +11,10 @@ config :markdown_editor,
   ecto_repos: [MarkdownEditor.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+# In config/config.exs
+config :pdf_generator,
+  storage_dir: "priv/static/pdfs"
+
 # Configures the endpoint
 config :markdown_editor, MarkdownEditorWeb.Endpoint,
   url: [host: "localhost"],

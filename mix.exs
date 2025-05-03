@@ -37,6 +37,8 @@ defmodule MarkdownEditor.MixProject do
       {:ecto_sql, "~> 3.10"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 4.0"},
+      {:earmark, "~> 1.4"},
+      {:pdf_generator, "~> 0.6"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.2"},
       {:floki, ">= 0.30.0", only: :test},
