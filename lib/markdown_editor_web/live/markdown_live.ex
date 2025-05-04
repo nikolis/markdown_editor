@@ -3,11 +3,18 @@ defmodule MarkdownEditorWeb.MarkdownLive do
   alias Phoenix.LiveView.JS
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, markdown: "", rendered_html: "")}
+    form = to_form(%{markdown: ""})
+    {:ok, 
+      assign(socket, markdown: "", rendered_html: "")
+      |> assign(form: form)
+    }
   end
 
   def handle_event("update_markdown", %{"markdown" => md}, socket) do
-    {:noreply, assign(socket, markdown: md, rendered_html: Earmark.as_html!(md))}
+    IO.inspect(md, label: "Here in the markdown")
+    html = Earmark.as_html!(md || "")
+    form = to_form(%{markdown: md})
+    {:noreply, assign(socket, markdown: md, rendered_html: html)}
   end
 
   def handle_event("export_pdf", _, socket) do
